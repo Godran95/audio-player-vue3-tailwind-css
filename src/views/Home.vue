@@ -1,5 +1,5 @@
 <template>
-  <div class=" h-screen w-full flex justify-center items-center space-x-3 bg-purple-600">
+  <div class=" h-screen w-full flex justify-center items-center  bg-purple-600">
     <Player file="https://api.songofgod.ru/files/fr/crois_seulement/audios/005.mp3"/>
   </div>
 </template>
