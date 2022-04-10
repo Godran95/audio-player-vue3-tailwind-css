@@ -1,12 +1,12 @@
 <template>
   <div class="player-container">
-    <audio :loop="looping" ref="audio" :src="file" @timeupdate="update" @loadeddata="load"
-           @pause="playing = false" @play="playing = true" preload="auto" class="hidden"></audio>
+    <audio :loop="looping" ref="audio" :src="file.mainUrl" @timeupdate="update" @loadeddata="load"
+           @pause="playing = false" @play="play" preload="auto" class="hidden"></audio>
     <router-link to="" class="w-20 h-20 rounded  ">
       <img src="@/assets/hqdefault.jpg" class="img-artist">
     </router-link>
     <div class="player-wrapper">
-      <div class="song-title">un jour sur le chemin</div>
+      <div class="song-title">{{ file.title }}</div>
       <div class="time-progress-bar-block">
         <div class="flex justify-between items-center w-full">
           <span>{{ convertTimeHHMMSS(this.currentSeconds) }}</span>
@@ -23,8 +23,8 @@
             <span id="download" @click.prevent="download" class="btn-icon">
               <DownloadIcon class="w-5 h-5"/>
             </span>
-          <span class="btn-icon">
-              <MusicNoteIcon class="w-5 h-5"/>
+          <span class="btn-icon" @click.prevent="switchAudio">
+                <MusicNoteIcon class="w-5 h-5"/>
             </span>
 
           <span @click.prevent="rewind" class="btn-icon hidden lg:flex">
@@ -99,7 +99,7 @@ export default {
       default: false
     },
     file: {
-      type: String,
+      type: Object,
       default: null
     },
     loop: {
@@ -157,9 +157,18 @@ export default {
       return hhmmss.indexOf("00:") === 0 ? hhmmss.substr(3) : hhmmss;
     },
 
+    play(){
+      this.playing = true
+    },
+
     download() {
       this.stop();
-      window.open(this.file, 'download');
+      window.open(this.file.mainUrl, 'download');
+    },
+
+    switchAudio() {
+      this.stop();
+      // window.open(this.file.mainUrl, 'download');
     },
     load() {
       if (this.$refs.audio.readyState >= 2) {
