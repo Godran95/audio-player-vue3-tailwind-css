@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.progress-bar{
+    @apply bg-gray-300 rounded-xl w-full h-2 overflow-hidden  cursor-pointer
+}
+
+.progress-bar-seek {
+    @apply bg-purple-500 py-1 cursor-pointer
+}
+
+.player-container {
+    @apply bg-white flex flex-row space-x-4 shadow-sm px-2 py-4 rounded-xl lg:w-6/12 w-full
+}
+
+.img-artist {
+    @apply object-cover w-full h-full rounded-md
+}
+
+.player-wrapper {
+    @apply text-center flex flex-col space-y-2 w-full
+}
+
+.time-progress-bar-block {
+    @apply  w-full text-xs flex flex-row items-center space-x-4
+}
+
+.btn-actions-container {
+    @apply flex flex-row justify-center items-center
+}
+
+.btn-icon {
+    @apply text-gray-500 cursor-pointer hover:text-purple-500
+}
+
+.volume-range{
+    @apply  rounded-lg overflow-hidden appearance-none w-24 bg-gray-300 h-2 absolute -inset-y-0.5 cursor-pointer
+}
+
+.is-looping-audio {
+    @apply absolute inset-y-5 right-2 bg-purple-500 h-1 w-1 rounded-full
+}
+
+.song-title {
+    @apply  capitalize font-bold text-gray-500
+}
