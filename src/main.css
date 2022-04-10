@@ -12,7 +12,7 @@
 }
 
 .player-container {
-    @apply bg-white flex flex-row space-x-4 shadow-sm px-2 py-4 rounded-xl lg:w-6/12 w-full
+    @apply bg-white flex flex-row space-x-4 shadow-sm px-2 py-4 rounded-xl lg:w-4/12 w-full
 }
 
 .img-artist {
@@ -24,7 +24,7 @@
 }
 
 .time-progress-bar-block {
-    @apply  w-full text-xs flex flex-row items-center space-x-4
+    @apply text-xs flex flex-col items-center
 }
 
 .btn-actions-container {
@@ -36,7 +36,7 @@
 }
 
 .volume-range{
-    @apply  rounded-lg overflow-hidden appearance-none w-24 bg-gray-300 h-2 absolute -inset-y-0.5 cursor-pointer
+    @apply  rounded-lg overflow-hidden appearance-none w-10 bg-gray-300 h-2 absolute -inset-y-0.5 cursor-pointer
 }
 
 .is-looping-audio {

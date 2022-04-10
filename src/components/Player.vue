@@ -8,13 +8,15 @@
     <div class="player-wrapper">
       <div class="song-title">un jour sur le chemin</div>
       <div class="time-progress-bar-block">
-        <span>{{ convertTimeHHMMSS(this.currentSeconds) }}</span>
+        <div class="flex justify-between items-center w-full">
+          <span>{{ convertTimeHHMMSS(this.currentSeconds) }}</span>
+          <span>{{ convertTimeHHMMSS(this.durationSeconds) }}</span>
+        </div>
         <div class="w-full ">
           <div class="progress-bar" @click="seek">
             <div :style="progressStyle" class="progress-bar-seek" title="Seek"></div>
           </div>
         </div>
-        <span>{{ convertTimeHHMMSS(this.durationSeconds) }}</span>
       </div>
       <div class="btn-actions-container">
         <div class="flex flex-row space-x-4 items-center">
@@ -25,7 +27,7 @@
               <MusicNoteIcon class="w-5 h-5"/>
             </span>
 
-          <span @click.prevent="rewind" class="btn-icon">
+          <span @click.prevent="rewind" class="btn-icon hidden lg:flex">
               <RewindIcon class="w-6 h-6"/>
             </span>
           <span v-if="!playing" class="btn-icon" id="play" @click.prevent="playing = !playing" :title="(playing) ? 'Pause' : 'Play'">
@@ -34,7 +36,7 @@
           <span v-if="playing" class="btn-icon" id="stop" @click.prevent="stop" title="Stop">
                <PauseIcon class="w-6 h-6" :class="playing ? 'text-purple-500':''"/>
             </span>
-          <span @click="fastForward" class="btn-icon">
+          <span @click="fastForward" class="btn-icon hidden lg:flex">
               <FastForwardIcon class="w-6 h-6"/>
             </span>
           <span class="relative mt-1 btn-icon">
